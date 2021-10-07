@@ -100,16 +100,16 @@ function groupBy(list, keyGetter) {
 
 try {
     let AddressBook = new Array();
-    let contact1 = new Contact('Zames','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
+    let contact1 = new Contact('James','Will','Delhi','Delhi',540020,'7894561230','j@j.com');
     console.log("Contact: "+contact1);
-    let contact2 = new Contact('Sarah','Will','Delhi','Delhi',540021,'7894791230','j@j.com');
-    let contact3 = new Contact('Vicky','Will','London','Delhi',540021,'7894971230','j@j.com');
+    let contact2 = new Contact('Darah','Will','aDelhi','ZDelhi',540021,'7894791230','j@j.com');
+    let contact3 = new Contact('Vicky','Will','London','xDelhi',540017,'7894971230','j@j.com');
     AddressBook.push(contact1);
     AddressBook.push(contact2);
     AddressBook.push(contact3);
 
     let nameToEdit = "Sarah";
-    let contactToEdit = new Contact('John','Will','Delhi','Delhi',540021,'7894971230','j@j.com');
+    let contactToEdit = new Contact('John','Will','kDelhi','lDelhi',530023,'7894971230','j@j.com');
     let editedAddressBook = new Array();
     AddressBook.forEach(contact => {
         if(contact.firstName == nameToEdit) {
@@ -163,6 +163,21 @@ try {
     AddressBook.sort((contact1, contact2) => {
         return contact1.firstName.localeCompare(contact2.firstName)
     }).forEach(contact => console.log(contact))
+
+    //uc12
+    console.log("=== SORTED BY CITY ===");
+    AddressBook.sort((contact1, contact2) => {
+        return contact1.address.city.localeCompare(contact2.address.city)
+    }).forEach(contact => console.log(contact.toString()))
+    console.log("=== SORTED BY STATE ===");
+    AddressBook.sort((contact1, contact2) => {
+        return contact1.address.state.localeCompare(contact2.address.state)
+    }).forEach(contact => console.log(contact.toString()))
+    console.log("=== SORTED BY ZIP ===");
+    AddressBook.sort((contact1, contact2) => {
+        return contact1.address.zip - (contact2.address.zip)
+    }).forEach(contact => console.log(contact.toString()))
+
 } catch (e) {
     console.log("Error! "+e);
 }
