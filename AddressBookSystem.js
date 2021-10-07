@@ -72,6 +72,17 @@ class Contact {
     }
 }
 
+function addContactToAddressBook(AddressBook, contactToAdd) {
+    if(AddressBook.some((contact) => { return contact.firstName == contactToAdd.firstName })) {
+        console.log("Contact already present");
+    }
+    else {
+        AddressBook.push(contactToAdd);
+        console.log("Contact added");
+    }
+    return AddressBook;
+}
+
 try {
     let AddressBook = new Array();
     let contact1 = new Contact('James','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
@@ -103,6 +114,15 @@ try {
 
     //uc6
     let totalContacts = AddressBook.reduce((total_Contacts, contact) => {
+        return total_Contacts+= 1;
+    }, 0);
+    console.log("Total contacts: ", totalContacts)
+
+    //uc7
+    let contactToAdd = new Contact('James','Will','Delhi','Delhi',540021,'7894971230','j@j.com');
+    AddressBook = addContactToAddressBook(AddressBook, contactToAdd)
+
+    totalContacts = AddressBook.reduce((total_Contacts, contact) => {
         return total_Contacts+= 1;
     }, 0);
     console.log("Total contacts: ", totalContacts)
