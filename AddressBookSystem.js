@@ -83,12 +83,26 @@ function addContactToAddressBook(AddressBook, contactToAdd) {
     return AddressBook;
 }
 
+function groupBy(list) {
+    const map = new Map();
+    list.forEach((item) => {
+         const key = item.address.city;
+         const collection = map.get(key);
+         if (!collection) {
+             map.set(key, [item.firstName]);
+         } else {
+             collection.push(item.firstName);
+         }
+    });
+    return map;
+}
+
 try {
     let AddressBook = new Array();
     let contact1 = new Contact('James','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
     console.log("Contact: "+contact1);
     let contact2 = new Contact('Sarah','Will','Delhi','Delhi',540021,'7894791230','j@j.com');
-    let contact3 = new Contact('Vicky','Will','Delhi','Delhi',540021,'7894971230','j@j.com');
+    let contact3 = new Contact('Vicky','Will','London','Delhi',540021,'7894971230','j@j.com');
     AddressBook.push(contact1);
     AddressBook.push(contact2);
     AddressBook.push(contact3);
@@ -133,6 +147,10 @@ try {
     AddressBook.filter(contact => contact.address.city == cityToSearch)
                 .filter(contact => contact.firstName == personToSearch)
                 .forEach(contact => console.log(contact));
+
+    //uc9 groupBy
+    let groupedContacts = groupBy(AddressBook);
+    console.log("Mappings: ", groupedContacts)
 
 } catch (e) {
     console.log("Error! "+e);
