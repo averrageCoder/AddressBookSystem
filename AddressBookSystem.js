@@ -4,8 +4,6 @@ class Address {
         this.state = params[1];
         this.zip = params[2];
     }
-}
-class Contact {
 
     get city() {return this._city};
     set city(city) {
@@ -30,14 +28,14 @@ class Contact {
 }
 class Contact {
 
->>>>>>> addressbooksystem_uc2
     constructor(...params) {
         this.firstName = params[0];
         this.lastName = params[1];
         this.address = new Address(params[2],params[3],params[4]);
         this.phoneNumber = params[5];
         this.email = params[6];
-  }
+    }
+
     get firstName() {return this._firstName};
     set firstName(firstName) {
         let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$')
@@ -75,9 +73,14 @@ class Contact {
 }
 
 try {
-    let contact = new Contact('James','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
-    console.log("Contact: "+contact);
+    let AddressBook = new Array();
+    let contact1 = new Contact('James','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
+    console.log("Contact: "+contact1);
+    let contact2 = new Contact('Sarah','Will','Delhi','Delhi',540021,'7894791230','j@j.com');
+    let contact3 = new Contact('Vicky','Will','Delhi','Delhi',540021,'7894971230','j@j.com');
+    AddressBook.push(contact1);
+    AddressBook.push(contact2);
+    AddressBook.push(contact3);
 } catch (e) {
     console.log("Error! "+e);
 }
-
