@@ -83,10 +83,11 @@ function addContactToAddressBook(AddressBook, contactToAdd) {
     return AddressBook;
 }
 
-function groupBy(list) {
+function groupBy(list, keyGetter) {
     const map = new Map();
     list.forEach((item) => {
-         const key = item.address.city;
+        //  /const key = item.address.city;
+         const key = keyGetter(item);
          const collection = map.get(key);
          if (!collection) {
              map.set(key, [item.firstName]);
@@ -149,8 +150,14 @@ try {
                 .forEach(contact => console.log(contact));
 
     //uc9 groupBy
-    let groupedContacts = groupBy(AddressBook);
+    let groupedContacts = groupBy(AddressBook, contact => contact.address.city);
     console.log("Mappings: ", groupedContacts)
+
+    //uc10
+    let groupedContactsByCity = groupBy(AddressBook, contact => contact.address.city);
+    groupedContactsByCity.forEach((value, key) => {
+        console.log(key," => ",value.length);
+    });
 
 } catch (e) {
     console.log("Error! "+e);
