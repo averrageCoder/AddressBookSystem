@@ -100,7 +100,7 @@ function groupBy(list, keyGetter) {
 
 try {
     let AddressBook = new Array();
-    let contact1 = new Contact('James','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
+    let contact1 = new Contact('Zames','Will','Delhi','Delhi',540021,'7894561230','j@j.com');
     console.log("Contact: "+contact1);
     let contact2 = new Contact('Sarah','Will','Delhi','Delhi',540021,'7894791230','j@j.com');
     let contact3 = new Contact('Vicky','Will','London','Delhi',540021,'7894971230','j@j.com');
@@ -159,6 +159,10 @@ try {
         console.log(key," => ",value.length);
     });
 
+    //uc11
+    AddressBook.sort((contact1, contact2) => {
+        return contact1.firstName.localeCompare(contact2.firstName)
+    }).forEach(contact => console.log(contact))
 } catch (e) {
     console.log("Error! "+e);
 }
