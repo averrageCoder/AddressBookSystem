@@ -92,8 +92,14 @@ try {
             editedAddressBook.push(contact);
         }
     });
-
     console.log("Edited addressbook: ", editedAddressBook)
+
+    //uc5
+    let nameToDelete = "Vicky";
+    let deletedAddressBook = AddressBook.filter(function (contact) {
+        return contact.firstName != nameToDelete;
+    });
+    console.log("After delete addressbook: ", deletedAddressBook)
 } catch (e) {
     console.log("Error! "+e);
 }
