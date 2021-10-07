@@ -81,6 +81,19 @@ try {
     AddressBook.push(contact1);
     AddressBook.push(contact2);
     AddressBook.push(contact3);
+
+    let nameToEdit = "Sarah";
+    let contactToEdit = new Contact('John','Will','Delhi','Delhi',540021,'7894971230','j@j.com');
+    let editedAddressBook = new Array();
+    AddressBook.forEach(contact => {
+        if(contact.firstName == nameToEdit) {
+            editedAddressBook.push(contactToEdit);
+        } else {
+            editedAddressBook.push(contact);
+        }
+    });
+
+    console.log("Edited addressbook: ", editedAddressBook)
 } catch (e) {
     console.log("Error! "+e);
 }
