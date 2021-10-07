@@ -127,6 +127,13 @@ try {
     }, 0);
     console.log("Total contacts: ", totalContacts)
 
+    //uc8
+    let cityToSearch = 'Delhi';
+    let personToSearch = 'Vicky';
+    AddressBook.filter(contact => contact.address.city == cityToSearch)
+                .filter(contact => contact.firstName == personToSearch)
+                .forEach(contact => console.log(contact));
+
 } catch (e) {
     console.log("Error! "+e);
 }
