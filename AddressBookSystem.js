@@ -100,6 +100,13 @@ try {
         return contact.firstName != nameToDelete;
     });
     console.log("After delete addressbook: ", deletedAddressBook)
+
+    //uc6
+    let totalContacts = AddressBook.reduce((total_Contacts, contact) => {
+        return total_Contacts+= 1;
+    }, 0);
+    console.log("Total contacts: ", totalContacts)
+
 } catch (e) {
     console.log("Error! "+e);
 }
